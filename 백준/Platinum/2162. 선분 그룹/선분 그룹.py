@@ -14,7 +14,7 @@ def ccw(x1, y1, x2, y2, x3, y3):
     else:
         return 0
 
-def isBetwwen(a, b, c):
+def isBetween(a, b, c):
     return min(a, b) <= c <= max(a, b)
 
 def isIntersect(x1, y1, x2, y2, x3, y3, x4, y4):
@@ -25,13 +25,13 @@ def isIntersect(x1, y1, x2, y2, x3, y3, x4, y4):
 
     if d1 * d2 < 0 and d3 * d4 < 0:
         return True
-    if d1 == 0 and isBetwwen(x1, x2, x3) and isBetwwen(y1, y2, y3):
+    if d1 == 0 and isBetween(x1, x2, x3) and isBetween(y1, y2, y3):
         return True
-    if d2 == 0 and isBetwwen(x1, x2, x4) and isBetwwen(y1, y2, y4):
+    if d2 == 0 and isBetween(x1, x2, x4) and isBetween(y1, y2, y4):
         return True
-    if d3 == 0 and isBetwwen(x3, x4, x1) and isBetwwen(y3, y4, y1):
+    if d3 == 0 and isBetween(x3, x4, x1) and isBetween(y3, y4, y1):
         return True
-    if d4 == 0 and isBetwwen(x3, x4, x2) and isBetwwen(y3, y4, y2):
+    if d4 == 0 and isBetween(x3, x4, x2) and isBetween(y3, y4, y2):
         return True
     return False
 
