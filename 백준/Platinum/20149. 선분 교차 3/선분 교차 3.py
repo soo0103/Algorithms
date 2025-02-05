@@ -29,7 +29,7 @@ def isIntersect(x1, y1, x2, y2, x3, y3, x4, y4):
             else:
                 return False
     
-    if ccw(x1,y1, x3,y3, x4, y4) * ccw(x2, y2, x3, y3, x4, y4) <= 0:
+    if ccw(x1, y1, x3, y3, x4, y4) * ccw(x2, y2, x3, y3, x4, y4) <= 0:
         if ccw(x3, y3, x1, y1, x2, y2) * ccw(x4, y4, x1, y1, x2, y2) <= 0:
             return True
         
@@ -60,6 +60,5 @@ if __name__ == "__main__":
                 print(x2, y2)
             elif x1 == x4 and y1 == y4:
                 print(x1, y1)
-
     else:
         print(0)
