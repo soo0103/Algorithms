@@ -19,11 +19,11 @@ def isIntersect(x1, y1, x2, y2, x3, y3, x4, y4):
             if (x1, y1) > (x2, y2):
                 x1, x2 = x2, x1
                 y1, y2 = y2, y1
-
+                
             if (x3, y3) > (x4, y4):
                 x3, x4 = x4, x3
                 y3, y4 = y4, y3
-
+                
             if (x2, y2) >= (x3, y3) and (x1, y1) <= (x4, y4):
                 return True
             else:
@@ -35,17 +35,30 @@ def isIntersect(x1, y1, x2, y2, x3, y3, x4, y4):
         
     return False
 
+def getIntersection(x1, y1, x2, y2, x3, y3, x4, y4):
+    a1 = y2 - y1
+    b1 = x1 - x2
+    c1 = a1 * x1 + b1 * y1
+    
+    a2 = y4 - y3
+    b2 = x3 - x4
+    c2 = a2 * x3 + b2 * y3
+    
+    D = crossProduct(a1, b1, a2, b2)
+    x = crossProduct(c1, c2, b1, b2) / D
+    y = crossProduct(a1, a2, c1, c2) / D
+
+    return (x, y)
+
 if __name__ == "__main__":
-    x1, y1, x2, y2 = map(int, input().split())
-    x3, y3, x4, y4 = map(int, input().split())
+    x1, y1, x2, y2 = map(int, sys.stdin.readline().split())
+    x3, y3, x4, y4 = map(int, sys.stdin.readline().split())
 
     if isIntersect(x1, y1, x2, y2, x3, y3, x4, y4):
         print(1)
 
         try:
-            x = ((x1 * y2 - y1 * x2) * (x3 - x4) - (x3 * y4 - x4 * y3) * (x1 - x2)) / ((x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4))
-            y = ((x1 * y2 - y1 * x2) * (y3 - y4) - (x3 * y4 - y3 * x4) * (y1 - y2)) / ((x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4))
-
+            x, y = getIntersection(x1, y1, x2, y2, x3, y3, x4, y4)
             print(x, y)
         except:
             if (x1, y1) > (x2, y2):
