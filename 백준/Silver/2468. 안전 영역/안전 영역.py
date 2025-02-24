@@ -2,22 +2,6 @@ import sys
 from collections import deque
 from copy import deepcopy
 
-def bfs(row, col, h):
-    dq = deque()
-    dq.append((row, col))
-
-    while dq:
-        r, c = dq.popleft()
-        
-        for i in range(4):
-            nr = r + dr[i]
-            nc = c + dc[i]
-
-            if 0 <= nr < N and 0 <= nc < N and not sunk[nr][nc]:
-                if zone[nr][nc] <= h:
-                    sunk[nr][nc] = True
-                    dq.append((nr, nc))
-
 def getSafe(row, col):
     dq = deque()
     dq.append((row, col))
@@ -52,7 +36,6 @@ if __name__ == "__main__":
             for c in range(N):
                 if not sunk[r][c] and zone[r][c] <= h:
                     sunk[r][c] = True
-                    bfs(r, c, h)
 
         for r in range(N):
             for c in range(N):
