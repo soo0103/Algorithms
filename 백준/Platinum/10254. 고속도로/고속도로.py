@@ -49,7 +49,6 @@ def rotatingCalipers(convexHull):
 
         while 1:
             comp = getDistance(convexHull[lp], convexHull[rp])
-            
             if distance < comp:
                 distance = comp
                 pair = [convexHull[lp], convexHull[rp]]
@@ -70,6 +69,7 @@ if __name__ == "__main__":
 
     for _ in range(T):
         n = int(sys.stdin.readline())
+
         cities = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 
         if len(cities) > 2:
