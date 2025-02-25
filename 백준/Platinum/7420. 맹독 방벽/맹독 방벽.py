@@ -43,7 +43,6 @@ def getConvexhull(points):
 if __name__ == "__main__":
     N, L = map(int, sys.stdin.readline().split())
     buildings = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
-    buildings.sort()
 
     convexHull = getConvexhull(buildings)
 
