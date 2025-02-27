@@ -11,7 +11,7 @@ for _ in range(t):
     flag = True
 
     for i in range(n - 1):
-        if numbers[i] in numbers[i + 1][:len(numbers[i])]:
+        if numbers[i] == numbers[i + 1][:len(numbers[i])]:
             print("NO")
             flag = False
             break
