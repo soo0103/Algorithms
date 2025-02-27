@@ -1,6 +1,5 @@
 import sys
 
-
 word = list(sys.stdin.readline().strip())
 
 words = []
