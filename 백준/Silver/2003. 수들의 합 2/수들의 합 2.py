@@ -8,7 +8,7 @@ end = 0
 cnt = 0
 result = A[0]
 
-while end < N:
+while 1:
     if result < M:
         end += 1
         if end >= N:
