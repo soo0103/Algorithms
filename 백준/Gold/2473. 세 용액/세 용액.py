@@ -2,27 +2,35 @@ import sys
 
 INF = int(1e9)
 
-N = int(sys.stdin.readline())
-solutions = list(map(int, sys.stdin.readline().split()))
-solutions.sort()
+def find_solutions():
+    global result
+    for i in range(N - 2):
+        left = i
+        mid = i + 1
+        right = N - 1
+        
+        while mid < right:
+            value = result[0] + result[1] + result[2]
+            comp = solutions[left] + solutions[mid] + solutions[right]
+            
+            if abs(value) > abs(comp):
+                result = [solutions[left], solutions[mid], solutions[right]]
 
-result = [INF, INF, INF]
+            if comp == 0:
+                result = [solutions[left], solutions[mid], solutions[right]]
+                return
+            elif comp > 0:
+                right -= 1
+            else:
+                mid += 1
 
-for i in range(N):
-    left = i
-    mid = i + 1
-    right = N - 1
-    
-    while mid < right:
-        if abs(sum(result)) > abs(solutions[left] + solutions[mid] + solutions[right]):
-            result = [solutions[left], solutions[mid], solutions[right]]
+if __name__ == "__main__":
+    N = int(sys.stdin.readline())
+    solutions = list(map(int, sys.stdin.readline().split()))
+    solutions.sort()
 
-        if solutions[left] + solutions[mid] + solutions[right] == 0:
-            result = [solutions[left], solutions[mid], solutions[right]]
-            break
-        elif solutions[left] + solutions[mid] + solutions[right] > 0:
-            right -= 1
-        else:
-            mid += 1
-    
-print(*result)
+    result = [INF, INF, INF]
+
+    find_solutions()
+        
+    print(*result)
