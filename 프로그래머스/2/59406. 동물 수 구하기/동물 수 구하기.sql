@@ -1,0 +1,2 @@
+SELECT COUNT(*) AS count_animals
+FROM ANIMAL_INS
