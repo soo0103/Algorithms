@@ -1,10 +1,8 @@
 import sys
 
-S = sys.stdin.readline().strip()
+S = list(map(int, str(sys.stdin.readline().strip())))
 
 length = 0
-
-S = [int(i) for i in S]
 
 for i in range(2, len(S) + 1, 2):
     for j in range(len(S) - i + 1):
