@@ -14,10 +14,6 @@ def union(a, b):
         parent[b] = a
     else:
         parent[a] = b
-        
-def calculate_cost(planet1, planet2):
-    cost = min(abs(planet1[0] - planet2[0]), abs(planet1[1] - planet2[1]), abs(planet1[2] - planet2[2]))
-    return cost
 
 def has_cycle(a, b):
     return find(a) == find(b)
