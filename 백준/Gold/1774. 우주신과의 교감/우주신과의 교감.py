@@ -46,4 +46,4 @@ if __name__ == "__main__":
             union(X, Y)
             distance += d
             
-    print("{:.2f}".format(distance))
+    print(f"{distance:.2f}")
