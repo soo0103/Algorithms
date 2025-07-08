@@ -16,12 +16,12 @@ def normalize(dx, dy):
     return (dx, dy)
 
 def count_right_triangles(points):
-    N = len(points)
     cnt = 0
 
     for i in range(N):
         slopes = defaultdict(int)
         xi, yi = points[i]
+        
         for j in range(N):
             if i == j:
                 continue
